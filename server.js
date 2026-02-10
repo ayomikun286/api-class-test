@@ -9,7 +9,7 @@ app.use(express.json()); // <-- important
 app.use(express.urlencoded({ extended: true }));
 
 
-
+const PORT = parseInt(process.env.PORT, 10) || 5000;
 
 // GET route
 app.get("/users", (req, res) => {
@@ -44,6 +44,6 @@ app.post("/details", async (req, res) => {
 });
 
 // Start server
-app.listen(5000, () => {
+app.listen(PORT, () => {
   console.log("Server running on port 5000");
 });
