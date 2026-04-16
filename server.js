@@ -11,6 +11,11 @@ app.use(express.urlencoded({ extended: true }));
 
 const PORT = parseInt(process.env.PORT, 10) || 5000;
 
+
+
+app.get("/", (req,res)=>{
+  res.json('backend running')
+})
 // GET route
 app.get("/users", (req, res) => {
   res.json([
