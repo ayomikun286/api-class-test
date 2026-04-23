@@ -26,12 +26,33 @@ app.get("/users", (req, res) => {
   ]);
 });
 
+app.post("/login", (req,res)=>{
+  const {email, password} = req.body;
+
+   const saveEmail = "edegbaiayomikun@gmail.com";
+  const savePass = "ayomikun"
+
+  if(!email || !password){
+    return res.status(400).json({message:"Please enter your details",})
+  }
+
+  if(email !==saveEmail && password !== savePass){
+    return res.status(400).json({message:"Invalid credential"})
+  }
+
+  if(email === saveEmail && password === savePass)
+
+  res.status(200).json({message:`Login successful ${email}`})
+})
+
 
 
 
 // POST route
 app.post("/details", async (req, res) => {
   const { email, name } = req.body;
+
+ 
 
   if (!email || !name) {
     return res.status(400).json({ error: "Missing data" });
